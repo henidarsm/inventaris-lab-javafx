@@ -1,0 +1,270 @@
+/* =====================================================================
+   Tema tampilan Sistem Inventaris Laboratorium (JavaFX CSS)
+   Warna utama biru (#2457D6), latar abu sangat muda, kartu putih
+   dengan sudut membulat. Font diatur di Ui.pasangCss() (Segoe UI di Windows).
+   ===================================================================== */
+
+.root {
+    -fx-font-size: 13px;
+    -fx-background-color: #F4F6FB;
+    -primer: #2457D6;
+    -primer-tua: #1B44AD;
+    -primer-muda: #E9EFFC;
+    -teks: #18202F;
+    -teks-2: #5B6475;
+    -teks-3: #8A93A3;
+    -garis: #E3E7EF;
+    -garis-input: #CDD3DE;
+    -merah: #D23B3B;
+    -merah-muda: #FDECEC;
+    -hijau: #1F8A52;
+    -hijau-muda: #E5F5EC;
+    -oranye: #C26A00;
+    -oranye-muda: #FFF1DE;
+    -ungu: #7140D6;
+    -ungu-muda: #F0EAFC;
+}
+
+/* ---------------------------------------------------------------- ikon */
+.ikon { -fx-background-color: -teks-2; }
+.ikon-putih { -fx-background-color: white; }
+.ikon-primer { -fx-background-color: -primer; }
+.ikon-merah { -fx-background-color: -merah; }
+.ikon-hijau { -fx-background-color: -hijau; }
+.ikon-oranye { -fx-background-color: -oranye; }
+.ikon-ungu { -fx-background-color: -ungu; }
+.ikon-redup { -fx-background-color: -teks-3; }
+
+/* ---------------------------------------------------------------- teks */
+.judul-halaman { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: -teks; }
+.subjudul { -fx-text-fill: -teks-2; }
+.judul-bagian { -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: -teks; }
+.label-form { -fx-text-fill: -teks; -fx-font-weight: bold; -fx-font-size: 12px; }
+.teks-redup { -fx-text-fill: -teks-3; -fx-font-size: 12px; }
+.teks-error { -fx-text-fill: -merah; }
+.teks-sukses { -fx-text-fill: -hijau; }
+
+/* --------------------------------------------------------------- kartu */
+.kartu {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: -garis;
+    -fx-border-radius: 12;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(24, 32, 47, 0.05), 14, 0, 0, 4);
+}
+.stat .judul-stat { -fx-text-fill: -teks-2; -fx-font-size: 12.5px; }
+.stat .nilai-stat { -fx-text-fill: -teks; -fx-font-size: 22px; -fx-font-weight: bold; }
+.stat .ket-stat { -fx-text-fill: -teks-3; -fx-font-size: 12px; }
+.wadah-ikon { -fx-background-radius: 10; -fx-min-width: 42; -fx-min-height: 42; -fx-max-width: 42; -fx-max-height: 42; }
+.wadah-biru { -fx-background-color: -primer-muda; }
+.wadah-ungu { -fx-background-color: -ungu-muda; }
+.wadah-hijau { -fx-background-color: -hijau-muda; }
+.wadah-oranye { -fx-background-color: -oranye-muda; }
+
+/* -------------------------------------------------------------- tombol */
+.button {
+    -fx-background-color: white;
+    -fx-border-color: -garis-input;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 7 14;
+    -fx-text-fill: -teks;
+    -fx-graphic-text-gap: 7;
+    -fx-cursor: hand;
+}
+.button:hover { -fx-background-color: #F6F8FB; }
+.button:focused { -fx-border-color: -primer; }
+.button:pressed { -fx-background-color: #EDF0F5; }
+.button:disabled { -fx-opacity: 0.45; }
+.btn-primer { -fx-background-color: -primer; -fx-border-color: -primer; -fx-text-fill: white; -fx-font-weight: bold; }
+.btn-primer:hover { -fx-background-color: -primer-tua; -fx-border-color: -primer-tua; }
+.btn-primer .ikon { -fx-background-color: white; }
+.btn-bahaya { -fx-text-fill: -merah; }
+.btn-bahaya .ikon { -fx-background-color: -merah; }
+.btn-bahaya:hover { -fx-background-color: -merah-muda; -fx-border-color: #F2B8B8; }
+.btn-ikon { -fx-padding: 7; }
+
+/* ---------------------------------------------------------- input form */
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-border-color: -garis-input;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 7 10;
+    -fx-prompt-text-fill: -teks-3;
+}
+.combo-box, .date-picker, .spinner {
+    -fx-background-color: white;
+    -fx-border-color: -garis-input;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+.combo-box { -fx-padding: 2 0; }
+.combo-box .arrow-button, .date-picker .arrow-button { -fx-background-color: transparent; }
+.date-picker .text-field, .spinner .text-field, .combo-box .text-field {
+    -fx-border-color: transparent; -fx-background-color: transparent;
+}
+.spinner .increment-arrow-button, .spinner .decrement-arrow-button { -fx-background-color: transparent; }
+.text-field:focused, .password-field:focused, .combo-box:focused, .date-picker:focused, .spinner:focused {
+    -fx-border-color: -primer;
+    -fx-effect: dropshadow(gaussian, rgba(36, 87, 214, 0.18), 6, 0.4, 0, 0);
+}
+.text-field:disabled { -fx-opacity: 1; -fx-background-color: #F2F4F8; -fx-text-fill: -teks-2; }
+.error, .error:focused {
+    -fx-border-color: -merah;
+    -fx-background-color: #FFF8F8;
+    -fx-effect: dropshadow(gaussian, rgba(210, 59, 59, 0.18), 6, 0.4, 0, 0);
+}
+.combo-box-popup .list-view { -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: -garis; }
+.combo-box-popup .list-cell { -fx-padding: 6 10; }
+.combo-box-popup .list-cell:hover { -fx-background-color: -primer-muda; -fx-text-fill: -teks; }
+.check-box .box, .radio-button .radio { -fx-background-color: white; -fx-border-color: -garis-input; -fx-border-radius: 4; }
+.radio-button .radio { -fx-border-radius: 10; -fx-background-radius: 10; }
+.check-box:selected .box { -fx-background-color: -primer; -fx-border-color: -primer; }
+.check-box:selected .mark { -fx-background-color: white; }
+.radio-button:selected .radio { -fx-border-color: -primer; }
+.radio-button:selected .dot { -fx-background-color: -primer; }
+
+/* kolom pencarian dengan ikon di dalamnya */
+.kolom-cari {
+    -fx-background-color: white;
+    -fx-border-color: -garis-input;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 0 0 0 10;
+    -fx-alignment: center-left;
+}
+.kolom-cari .text-field { -fx-border-color: transparent; -fx-background-color: transparent; -fx-effect: null; }
+
+/* ------------------------------------------------------------- sidebar */
+.sidebar {
+    -fx-background-color: white;
+    -fx-border-color: transparent -garis transparent transparent;
+    -fx-padding: 18 12 14 12;
+    -fx-spacing: 4;
+}
+.sidebar-judul { -fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: -teks; }
+.sidebar-sub { -fx-text-fill: -teks-3; -fx-font-size: 11.5px; }
+.sidebar-seksi { -fx-text-fill: -teks-3; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 16 10 6 10; }
+.nav {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-text-fill: -teks-2;
+    -fx-alignment: center-left;
+    -fx-padding: 9 12;
+    -fx-graphic-text-gap: 12;
+    -fx-cursor: hand;
+}
+.nav .ikon { -fx-background-color: -teks-3; }
+.nav:hover { -fx-background-color: #F3F5F9; -fx-text-fill: -teks; }
+.nav:selected { -fx-background-color: -primer-muda; -fx-text-fill: -primer; -fx-font-weight: bold; }
+.nav:selected .ikon { -fx-background-color: -primer; }
+.kartu-pengguna { -fx-background-color: #F6F8FB; -fx-background-radius: 10; -fx-padding: 10; }
+.avatar { -fx-background-color: -primer; -fx-background-radius: 18; -fx-min-width: 36; -fx-min-height: 36; -fx-max-width: 36; -fx-max-height: 36; }
+.avatar .label { -fx-text-fill: white; -fx-font-weight: bold; }
+.nama-pengguna { -fx-font-weight: bold; -fx-text-fill: -teks; -fx-font-size: 12.5px; }
+
+/* --------------------------------------------------------- menu & status */
+.menu-bar { -fx-background-color: white; -fx-border-color: transparent transparent -garis transparent; -fx-padding: 1 6; }
+.menu-bar .menu .label { -fx-text-fill: -teks; }
+.menu-bar .menu:hover, .menu-bar .menu:showing { -fx-background-color: #EEF1F6; -fx-background-radius: 6; }
+.context-menu { -fx-background-color: white; -fx-background-radius: 8; -fx-border-color: -garis; -fx-border-radius: 8; -fx-padding: 4; }
+.context-menu .menu-item { -fx-background-radius: 6; -fx-padding: 6 12; }
+.context-menu .menu-item:focused { -fx-background-color: -primer-muda; }
+.context-menu .menu-item:focused .label { -fx-text-fill: -teks; }
+.status-bar { -fx-background-color: white; -fx-border-color: -garis transparent transparent transparent; -fx-padding: 5 16; }
+.status-bar .label { -fx-text-fill: -teks-3; -fx-font-size: 11.5px; }
+
+/* --------------------------------------------------------------- tabel */
+.table-view { -fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0; }
+.table-view:focused { -fx-background-insets: 0; }
+.table-view .column-header-background { -fx-background-color: #F7F8FB; -fx-background-radius: 8 8 0 0; }
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -garis transparent;
+    -fx-size: 38;
+}
+.table-view .column-header .label { -fx-text-fill: -teks-2; -fx-font-weight: bold; -fx-font-size: 12px; -fx-alignment: center-left; }
+.table-row-cell { -fx-background-color: white; -fx-cell-size: 42; -fx-border-color: transparent transparent #EEF1F5 transparent; }
+.table-row-cell:hover { -fx-background-color: #F7F9FD; }
+.table-row-cell:selected { -fx-background-color: -primer-muda; }
+.table-row-cell:selected .table-cell { -fx-text-fill: -teks; }
+.table-row-cell:empty, .table-row-cell:empty:hover { -fx-border-color: transparent; -fx-background-color: white; }
+.table-cell { -fx-padding: 0 12; -fx-alignment: center-left; -fx-border-color: transparent; -fx-text-fill: -teks; }
+.sel-angka { -fx-alignment: center-right; }
+.sel-tebal { -fx-font-weight: bold; }
+.table-view .placeholder .label { -fx-text-fill: -teks-3; }
+
+/* label status kecil (badge) */
+.badge { -fx-background-radius: 20; -fx-padding: 3 10; -fx-font-size: 11.5px; -fx-font-weight: bold; }
+.badge-hijau { -fx-background-color: -hijau-muda; -fx-text-fill: -hijau; }
+.badge-oranye { -fx-background-color: -oranye-muda; -fx-text-fill: -oranye; }
+.badge-merah { -fx-background-color: -merah-muda; -fx-text-fill: -merah; }
+.badge-abu { -fx-background-color: #EEF1F5; -fx-text-fill: -teks-2; }
+.badge-biru { -fx-background-color: -primer-muda; -fx-text-fill: -primer; }
+
+/* ------------------------------------------------- legenda & bar nilai */
+.titik { -fx-background-radius: 6; -fx-min-width: 10; -fx-min-height: 10; -fx-max-width: 10; -fx-max-height: 10; }
+.warna-0 { -fx-background-color: #2457D6; }
+.warna-1 { -fx-background-color: #7140D6; }
+.warna-2 { -fx-background-color: #1F8A52; }
+.warna-3 { -fx-background-color: #E08A1E; }
+.rel-bar { -fx-background-color: #EEF1F6; -fx-background-radius: 5; -fx-min-height: 8; -fx-max-height: 8; }
+.isi-bar { -fx-background-radius: 5; -fx-min-height: 8; -fx-max-height: 8; }
+.chart { -fx-padding: 0; }
+.chart-pie-label-line, .chart-pie-label { visibility: hidden; }
+.default-color0.chart-pie { -fx-pie-color: #2457D6; -fx-border-color: white; -fx-border-width: 2; }
+.default-color1.chart-pie { -fx-pie-color: #7140D6; -fx-border-color: white; -fx-border-width: 2; }
+.default-color2.chart-pie { -fx-pie-color: #1F8A52; -fx-border-color: white; -fx-border-width: 2; }
+.default-color3.chart-pie { -fx-pie-color: #E08A1E; -fx-border-color: white; -fx-border-width: 2; }
+.lubang-donat { -fx-background-color: white; -fx-background-radius: 100; }
+.angka-donat { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -teks; }
+
+/* --------------------------------------------------------------- login */
+.login-brand { -fx-background-color: linear-gradient(to bottom, #2457D6, #1A3E9E); -fx-padding: 40; }
+.login-brand .judul-brand { -fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold; }
+.login-brand .sub-brand { -fx-text-fill: rgba(255,255,255,0.85); -fx-font-size: 13.5px; }
+.login-brand .kecil { -fx-text-fill: rgba(255,255,255,0.65); -fx-font-size: 12px; }
+.lingkar-logo { -fx-background-color: white; -fx-background-radius: 50; -fx-min-width: 84; -fx-min-height: 84; -fx-max-width: 84; -fx-max-height: 84; }
+.login-form { -fx-background-color: white; -fx-padding: 48 52; }
+.login-form .judul-halaman { -fx-font-size: 24px; }
+
+/* ----------------------------------------------------------- dialog form */
+.form-dialog { -fx-background-color: #F4F6FB; }
+.kepala-dialog { -fx-background-color: white; -fx-border-color: transparent transparent -garis transparent; -fx-padding: 16 22; }
+.kaki-dialog { -fx-background-color: white; -fx-border-color: -garis transparent transparent transparent; -fx-padding: 12 22; }
+.isi-dialog { -fx-padding: 16 22; }
+.estimasi { -fx-background-color: -primer-muda; -fx-background-radius: 8; -fx-padding: 10 12; -fx-text-fill: #1B3A8A; }
+
+/* ----------------------------------------------------------------- alert */
+.dialog-pane { -fx-background-color: white; -fx-padding: 0; }
+.dialog-pane .header-panel { -fx-background-color: white; -fx-padding: 18 20 6 20; }
+.dialog-pane .header-panel .label { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: -teks; }
+.dialog-pane > .content.label { -fx-padding: 6 20 14 20; -fx-text-fill: -teks-2; }
+.dialog-pane > .button-bar > .container { -fx-padding: 12 20 16 20; -fx-background-color: #F7F8FB; }
+.dialog-pane .button:default { -fx-background-color: -primer; -fx-border-color: -primer; -fx-text-fill: white; -fx-font-weight: bold; }
+
+/* scroll bar tipis */
+.scroll-bar { -fx-background-color: transparent; }
+.scroll-bar .thumb { -fx-background-color: #CDD3DE; -fx-background-radius: 6; }
+.scroll-bar .increment-button, .scroll-bar .decrement-button { -fx-padding: 0; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-shape: " "; -fx-padding: 0; }
+
+/* scroll pane halaman dashboard: tanpa latar/bingkai sendiri */
+.scroll-pane, .scroll-pane > .viewport { -fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0; }
+.scroll-pane { -fx-border-color: transparent; }
+
+/* ------------------------------------------------- foto halaman login */
+.lapisan-foto {
+    -fx-background-color: linear-gradient(to bottom,
+        rgba(14, 35, 90, 0.10) 0%,
+        rgba(14, 35, 90, 0.15) 40%,
+        rgba(14, 35, 90, 0.78) 72%,
+        rgba(10, 26, 70, 0.95) 100%);
+}
+.isi-foto { -fx-padding: 34 36; }
+.isi-foto .judul-brand { -fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold; }
+.isi-foto .sub-brand { -fx-text-fill: rgba(255,255,255,0.88); -fx-font-size: 13.5px; }
+.isi-foto .kecil { -fx-text-fill: rgba(255,255,255,0.70); -fx-font-size: 12px; }
+.lingkar-logo-kecil { -fx-background-color: white; -fx-background-radius: 40; -fx-min-width: 60; -fx-min-height: 60; -fx-max-width: 60; -fx-max-height: 60; }
