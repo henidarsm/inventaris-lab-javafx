@@ -1,0 +1,35 @@
+@startuml package_diagram
+skinparam dpi 130
+skinparam shadowing false
+skinparam monochrome true
+skinparam defaultFontName DejaVu Sans
+skinparam packageStyle folder
+skinparam classAttributeIconSize 0
+hide empty members
+hide circle
+left to right direction
+title Package Diagram - Arsitektur MVC + DAO (JavaFX)
+
+package view {
+  class "LoginView\nMainView\nDashboardView\nAsetView\nAsetFormDialog\nRuanganView\nRuanganFormDialog\nUi, Ikon (+ style.css)" as Vc
+}
+package controller {
+  class "LoginController\nMainController\nDashboardController\nAsetController\nRuanganController" as Cc
+}
+package service {
+  class "AuthService\nInventarisService\nRuanganService" as Sc
+}
+package dao {
+  class "Dao<T> (interface)\nAbstractFileDao<T> (abstract)\nAsetDao\nRuanganDao\nPenggunaDao" as Dc
+}
+package model {
+  class "Aset + 4 turunan\nRuangan, Pengguna\nIdentifiable, Perawatan\nJenisAset, Kondisi, Peran" as Mc
+}
+
+view <.. controller : <<use>>
+controller ..> service : <<use>>
+service ..> dao : <<use>>
+dao ..> model : <<use>>
+service ..> model : <<use>>
+view ..> model : <<use>>
+@enduml

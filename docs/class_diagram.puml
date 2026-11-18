@@ -1,0 +1,139 @@
+@startuml class_diagram
+skinparam dpi 120
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam monochrome true
+skinparam defaultFontName DejaVu Sans
+skinparam classFontStyle bold
+hide empty members
+title Class Diagram - Package inventarislab.model
+
+interface Identifiable {
+  + getId() : String
+}
+
+interface Perawatan {
+  + getJenisPerawatan() : String
+  + getIntervalPerawatanBulan() : int
+  + getTanggalPerawatanTerakhir() : LocalDate
+  + getJadwalPerawatanBerikutnya() : LocalDate
+  + perluPerawatan(hariIni : LocalDate) : boolean
+}
+
+abstract class Aset {
+  - id : String
+  - nama : String
+  - merk : String
+  - tanggalPerolehan : LocalDate
+  - hargaPerolehan : double
+  - kondisi : Kondisi
+  - kodeRuangan : String
+  # Aset(id, nama, merk, tanggalPerolehan, hargaPerolehan, kondisi, kodeRuangan)
+  + {abstract} getJenis() : JenisAset
+  + {abstract} getUmurEkonomisTahun() : int
+  + {abstract} hitungPenyusutanTahunan(tahunKe : int) : double
+  + {abstract} getSpesifikasi() : String
+  + {abstract} getMetodePenyusutan() : String
+  # getPersenResidu() : double
+  + getNilaiResidu() : double
+  + hitungAkumulasiPenyusutan(perTanggal : LocalDate) : double
+  + hitungNilaiBuku() : double
+  + hitungNilaiBuku(perTanggal : LocalDate) : double
+  + tampilkanInfo() : String
+}
+
+class Komputer {
+  - prosesor : String
+  - ramGb : int
+  - tanggalPerawatanTerakhir : LocalDate
+  + Komputer(..., prosesor, ramGb, tanggalPerawatanTerakhir)
+  + hitungPenyusutanTahunan(tahunKe : int) : double
+  + getSpesifikasi() : String
+  + getJenisPerawatan() : String
+}
+
+class PerangkatJaringan {
+  - jumlahPort : int
+  - tanggalPerawatanTerakhir : LocalDate
+  + PerangkatJaringan(..., jumlahPort, tanggalPerawatanTerakhir)
+  + hitungPenyusutanTahunan(tahunKe : int) : double
+  + getSpesifikasi() : String
+  + getJenisPerawatan() : String
+}
+
+class Furnitur {
+  - bahan : String
+  + Furnitur(..., bahan)
+  + hitungPenyusutanTahunan(tahunKe : int) : double
+  # getPersenResidu() : double
+  + getSpesifikasi() : String
+}
+
+class PerangkatEmbedded {
+  - platform : String
+  - intervalPengecekanBulan : int
+  - tanggalPengecekanTerakhir : LocalDate
+  + PerangkatEmbedded(..., platform, intervalPengecekanBulan, tanggalPengecekanTerakhir)
+  + hitungPenyusutanTahunan(tahunKe : int) : double
+  # getPersenResidu() : double
+  + getSpesifikasi() : String
+  + getJenisPerawatan() : String
+}
+
+class Ruangan {
+  - kode : String
+  - nama : String
+  - gedung : String
+  - kapasitas : int
+  - berAc : boolean
+  - penanggungJawab : String
+  + getId() : String
+}
+
+class Pengguna {
+  - username : String
+  - passwordHash : String
+  - namaLengkap : String
+  - peran : Peran
+  + {static} baru(username, passwordPolos, namaLengkap, peran) : Pengguna
+  + cekPassword(passwordPolos : String) : boolean
+  + isAdmin() : boolean
+}
+
+enum JenisAset {
+  KOMPUTER
+  JARINGAN
+  FURNITUR
+  EMBEDDED
+}
+
+enum Kondisi {
+  BAIK
+  RUSAK_RINGAN
+  RUSAK_BERAT
+}
+
+enum Peran {
+  ADMIN
+  LABORAN
+}
+
+Identifiable <|.. Aset
+Identifiable <|.. Ruangan
+Identifiable <|.. Pengguna
+
+Aset <|-- Komputer
+Aset <|-- PerangkatJaringan
+Aset <|-- Furnitur
+Aset <|-- PerangkatEmbedded
+
+Perawatan <|.. Komputer
+Perawatan <|.. PerangkatJaringan
+Perawatan <|.. PerangkatEmbedded
+
+Aset --> "1" Kondisi : kondisi
+Aset ..> JenisAset : <<use>>
+Pengguna --> "1" Peran : peran
+Ruangan "1" -- "0..*" Aset : ditempati >
+
+@enduml
